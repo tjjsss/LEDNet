@@ -38,4 +38,4 @@ base_path = '/home/rstao/Tangshijie/data/68_test/train'
 categories = ['car', 'cat', 'chair', 'horse']
 
 output_file = generate_dataset_txt(base_path, categories)
-print(f"输出文件: {output_file}")
+print(f"output file: {output_file}")
