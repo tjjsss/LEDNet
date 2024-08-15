@@ -22,13 +22,7 @@ Download dataset from [CNNDetection CVPR2020 (Table1 results)](https://github.co
 | Table4 Test            | [UniversalFakeDetect CVPR2023](https://github.com/Yuheng-Li/UniversalFakeDetect)        | [googledrive](https://drive.google.com/drive/folders/1nkCXClC7kFM01_fqmLrVNtnOYEFPtWO-?usp=sharing)| 
 | Table5 Test            | Diffusion1kStep                                                                         | [googledrive](https://drive.google.com/drive/folders/14f0vApTLiukiPvIHukHDzLujrvJpDpRq?usp=sharing)   | 
 
-```
-pip install gdown==4.7.1
 
-chmod 777 ./download_dataset.sh
-
-./download_dataset.sh
-```
 ## Directory structure
 <details>
 <summary> Click to expand the folder tree structure. </summary>
@@ -105,11 +99,22 @@ datasets
 </details>
 ## How to Use 
 
-when the dataset are prepared you can just use the command:![image](https://github.com/user-attachments/assets/351c1c60-f272-41f4-b5f7-36282123a060)
+when the dataset are prepared you can just use the command:
+```
+python preprocess.py
+```
+
 to generate the datafile under annotation.
 then change the file pass in the ![image](https://github.com/user-attachments/assets/ec2d3e96-6fb9-4d54-89be-d41359a21e8e)  of the file model.py 
-then using python model.py 
-to ensure you can  reproduce our result in the paper we provide the url of our pretrain model in the model/pretrain.txt you just need to run test.py after  changing the model-path in test.py
+then using 
+```
+python model.py
+```
+to ensure you can  reproduce our result in the paper we provide the url of our pretrain model in the model/pretrain.txt you just need to run 
+```
+python test.py
+```
+after changing the model-path in test.py
 
 
 
