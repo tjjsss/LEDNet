@@ -1,16 +1,12 @@
 # LEDNet
 code of paper Describing Forgery: Learnable Prompts via Non-Contrastive Learning for Generalized Deepfake Detection
+![image](https://github.com/user-attachments/assets/0c2092d3-48d7-4c5d-9379-9953042c73b0)
 
 ## Environment setup
 **Classification environment:** 
 We recommend installing the required packages by running the command:
-```sh
-pip install -r requirements.txt
 ```
-In order to ensure the reproducibility of the results, we provide the following suggestions：
-- Docker image: nvcr.io/nvidia/tensorflow:21.02-tf1-py3
-- Conda environment: [./pytorch18/bin/python](https://drive.google.com/file/d/16MK7KnPebBZx5yeN6jqJ49k7VWbEYQPr/view) 
-- Random seed during testing period: [Random seed](https://github.com/chuangchuangtan/NPR-DeepfakeDetection/blob/b4e1bfa59ec58542ab5b1e78a3b75b54df67f3b8/test.py#L14)
+conda env create -f LED.yml
 
 ## Getting the data
 <!-- 
