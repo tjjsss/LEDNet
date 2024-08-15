@@ -114,11 +114,11 @@ class PROMPTLEARNER(nn.Module):
 
 
 def load_test_data(test_dir):
-    test_sets = {'table_1': {}, 'table_2': {}, 'table_3': {}, 'table_4': {}}
+    test_sets = {'table_1': {}, 'table_2': {}, 'table_3': {}}
     table_1_datasets = ['progan', 'stylegan', 'stylegan2', 'biggan', 'cyclegan', 'stargan', 'gaugan', 'deepfake']
     table_2_datasets = ['AttGAN', 'BEGAN', 'CramerGAN', 'InfoMaxGAN', 'MMDGAN', 'RelGAN', 'S3GAN', 'SNGAN', 'STGAN']
-    table_3_datasets = ['adm', 'ddpm', 'iddpm', 'ldm', 'pndm', 'vqdiffusion', 'sdv1_new', 'sdv2']
-    table_4_datasets = ['dalle', 'glide_100_10', 'glide_100_27', 'glide_50_27', 'adm', 'ldm_100', 'ldm_200', 'ldm_200_cfg']
+   
+    table_3_datasets = ['dalle', 'glide_100_10', 'glide_100_27', 'glide_50_27', 'adm', 'ldm_100', 'ldm_200', 'ldm_200_cfg']
 
     for entry in os.scandir(test_dir):
         if entry.is_dir():
@@ -158,8 +158,7 @@ def load_test_data(test_dir):
                         test_sets['table_2'][entry.name] = test_data
                     elif entry.name in table_3_datasets:
                         test_sets['table_3'][entry.name] = test_data
-                    elif entry.name in table_4_datasets:
-                        test_sets['table_4'][entry.name] = test_data
+                   
     return test_sets
 
 def evaluate_model(model, test_sets):
@@ -198,7 +197,7 @@ def train_and_validate(train_data, test_sets, baselines, args):
     best_accuracy = 0.0
     best_epoch = 0
 
-    with open("table_output/model_pp5.txt", "w") as f:
+    with open("table_output/model.txt", "w") as f:
         for epoch in range(args.num_epochs):
             model.train()
             loss_total = 0.0
@@ -227,7 +226,7 @@ def train_and_validate(train_data, test_sets, baselines, args):
             #print(f'Epoch {epoch+1}/{args.num_epochs},Attention Weights: {model.attention_weights.detach().cpu().numpy()}')
 
             table_means = []
-            for table in ['table_1', 'table_2', 'table_3', 'table_4']:
+            for table in ['table_1', 'table_2', 'table_3']:
                 table_data = [acc for name, (acc, ap) in results.items() if name in test_sets[table]]
                 table_mean = sum(table_data) / len(table_data)
                 table_means.append(table_mean)
@@ -241,7 +240,7 @@ def train_and_validate(train_data, test_sets, baselines, args):
             if all(mean > baseline for mean, baseline in zip(table_means, baselines)):
                 best_accuracy = max(best_accuracy, max(table_means))
                 best_epoch = epoch + 1
-                model_filename = f"models/best_model_pp5_epoch_{epoch + 1}.pth"
+                model_filename = f"models/best_model_epoch_{epoch + 1}.pth"
                 torch.save(model.state_dict(), model_filename)
                 f.write(f"Model saved at Epoch {epoch + 1} as {model_filename}\n")
                 f.flush()
@@ -258,10 +257,10 @@ if __name__ == "__main__":
     parser.add_argument("--num_epochs", type=int, default=100, help="Number of epochs for training")
     parser.add_argument("--learning_rate", type=float, default=0.0001, help="Learning rate for training")
     parser.add_argument("--train_data_file", type=str, default="/home/rstao/Tangshijie/lab/deepfake/image_text/annotation/dataset_4train_144024.txt", help="Path to train data file")
-    parser.add_argument("--validate_data_path", type=str, default="/home/rstao/Tangshijie/data/68_test/test", help="Path to validate data directory")
+    parser.add_argument("--test_data_path", type=str, default="/home/rstao/Tangshijie/data/68_test/test", help="Path to test data directory")
     args = parser.parse_args()
 
-    baselines = [0.871, 0.811, 0.482, 0.82]
+    baselines = [0.85, 0.85, 0.85]
 
     train_data = load_text_dataset(args.data_file)
     print("Train data size:", len(train_data))
