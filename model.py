@@ -137,8 +137,7 @@ def load_test_data(test_dir):
                     test_sets['table_2'][entry.name] = test_data
                 elif entry.name in table_3_datasets:
                     test_sets['table_3'][entry.name] = test_data
-                elif entry.name in table_4_datasets:
-                    test_sets['table_4'][entry.name] = test_data
+               
             else:
                 test_data = []
                 for sub_entry in os.scandir(entry.path):
