@@ -261,7 +261,7 @@ if __name__ == "__main__":
 
     baselines = [0.85, 0.85, 0.85]
 
-    train_data = load_text_dataset(args.data_file)
+    train_data = load_text_dataset(args.train_data_file)
     print("Train data size:", len(train_data))
 
     test_sets = load_test_data(args.test_data_path)
