@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/d5464028-337d-4d1f-943c-cac0812d4e6e)# LEDNet
+# LEDNet
 code of paper Describing Forgery: Learnable Prompts via Non-Contrastive Learning for Generalized Deepfake Detection
 ![image](https://github.com/user-attachments/assets/0c2092d3-48d7-4c5d-9379-9953042c73b0)
 
