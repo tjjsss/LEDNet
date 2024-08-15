@@ -10,7 +10,7 @@ from PIL import Image, UnidentifiedImageError
 from PIL.Image import BICUBIC
 from torchvision.transforms import Compose, Resize, CenterCrop, ToTensor, Normalize
 import argparse
-from tqdm import tqdm  # 导入 tqdm
+from tqdm import tqdm  
 
 def collate_fn(batch):
     batch = list(filter(lambda x: x is not None, batch))
@@ -239,7 +239,7 @@ def train_and_validate(train_data, test_sets, baselines, args):
             if all(mean > baseline for mean, baseline in zip(table_means, baselines)):
                 best_accuracy = max(best_accuracy, max(table_means))
                 best_epoch = epoch + 1
-                model_filename = f"models/best_model_epoch_{epoch + 1}.pth"
+                model_filename = f"model/best_model_epoch_{epoch + 1}.pth"
                 torch.save(model.state_dict(), model_filename)
                 f.write(f"Model saved at Epoch {epoch + 1} as {model_filename}\n")
                 f.flush()
