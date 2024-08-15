@@ -257,8 +257,8 @@ if __name__ == "__main__":
     parser.add_argument("--batch_size", type=int, default=256, help="Batch size for training")
     parser.add_argument("--num_epochs", type=int, default=100, help="Number of epochs for training")
     parser.add_argument("--learning_rate", type=float, default=0.0001, help="Learning rate for training")
-    parser.add_argument("--data_file", type=str, default="/home/rstao/Tangshijie/lab/deepfake/image_text/annotation/dataset_4train_144024.txt", help="Path to train data file")
-    parser.add_argument("--test_data_path", type=str, default="/home/rstao/Tangshijie/data/68_test/test", help="Path to test data directory")
+    parser.add_argument("--train_data_file", type=str, default="/home/rstao/Tangshijie/lab/deepfake/image_text/annotation/dataset_4train_144024.txt", help="Path to train data file")
+    parser.add_argument("--validate_data_path", type=str, default="/home/rstao/Tangshijie/data/68_test/test", help="Path to validate data directory")
     args = parser.parse_args()
 
     baselines = [0.871, 0.811, 0.482, 0.82]
