@@ -102,4 +102,12 @@ datasets
 
 
 ```
+##How to Use 
+when the dataset are prepared you can just use the command:![image](https://github.com/user-attachments/assets/47af472f-9d8a-4f38-9ba2-7404ff7c0b5a) to generate the datafile under annotation.
+then change the file pass in the ![image](https://github.com/user-attachments/assets/ec2d3e96-6fb9-4d54-89be-d41359a21e8e)  of the file model.py 
+then using python model.py 
+to ensure you can  reproduce our result in the paper we provide the url of our pretrain model in the model/pretrain.txt you just need to run test.py after  changing the model-path in test.py
+
+
+
 </details>
