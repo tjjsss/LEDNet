@@ -102,6 +102,7 @@ datasets
 
 
 ```
+</details>
 ## How to Use 
 
 when the dataset are prepared you can just use the command:![image](https://github.com/user-attachments/assets/351c1c60-f272-41f4-b5f7-36282123a060)
